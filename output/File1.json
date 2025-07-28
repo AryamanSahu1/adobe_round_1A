@@ -1,0 +1,985 @@
+{
+    "title": "arXiv:2507.12484v1  [cs.AI]  14 Jul 2025",
+    "outline": [
+        {
+            "level": "H1",
+            "text": "Personalized and Adaptive Education",
+            "page": 1
+        },
+        {
+            "level": "H1",
+            "text": "Introduction",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "AI-Powered Math Tutoring: Platform for",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "Personalized and Adaptive Education",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "ticular large language models (LLMs), has profoundly altered the way in",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "Despite this advancement, current AI tutoring systems face limitations",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "without encouraging deep reflection or incorporating structured peda-",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "This research addresses the question: How can AI tutoring systems move",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "AI tutoring platform that combines adaptive and personalized feedback,",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "structured course generation, and textbook knowledge retrieval to enable",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "modular, tool-assisted learning processes. This system allows students to",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "in education by introducing a novel platform that brings together ped-",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "modular and effective systems for teaching mathematics.",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "guage Models · Tutoring Systems · Personalized Learning · Math Edu-",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "as varying prior knowledge and learning paces, and the limitations of traditional",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "Artificial intelligence (AI), especially Large Language Models (LLMs), shows",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "potential for Intelligent Tutoring Systems (ITS) offering adaptive feedback and",
+            "page": 1
+        },
+        {
+            "level": "H2",
+            "text": "Fig. 1.  Guided tutoring interaction showing Socratic questioning and personalized sup-",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "However, many current LLM tutors provide direct answers, often overlook-",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "understanding [16], lack robust integration with course materials [12], and offer",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "limited dynamic adaptation [18]. A gap exists for AI tutors that foster deep",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "We introduce a multi-agent AI tutoring environment combining adaptive",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "and Directed Acyclic Graph (DAG)-based course planning. Our approach prior-",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "building guiding LLM tutors, MathDial [15, 16] being just one of them.",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "grained knowledge integration and deep personalization required to tailor guid-",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "ance precisely to evolving student understanding, which underpins our adaptive",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "1  https://github.com/feilaz/AI_Powered_Math_Tutoring",
+            "page": 2
+        },
+        {
+            "level": "H2",
+            "text": "AI-Powered Math Tutoring",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "Fig. 2.  Course creation using a DAG structure for structured learning and targeted",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "grounding LLMs knowledge [12]. We use GraphRAG [4] based on the argument",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "that its graph structure better represents educational content relations than",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "normal vector RAG for contextual tutoring [7].",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "comprehensive multi-agent framework focusing on guided mathematical learning,",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "using GraphRAG and dual-memory personalization.",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "presents the components of Intelligent Textbook Retrieval (GraphRAG), the Tu-",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "toring Agent, Personalization (Memory), the Course module, and Task Creation.",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "3.1",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "Guided and Personalized Tutoring with AI",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "Instead of solving an equation immediately, the Tutoring Agent uses Socratic",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "retrieves textbook data (\"Textbook Data Retrieval\") to ground its responses",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "Personalization uses Long-Term Memory (LTM) for stable traits (e.g., topic",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "for the current session context. For instance, if LTM knows that a student usu-",
+            "page": 3
+        },
+        {
+            "level": "H2",
+            "text": "Fig. 3.  System architecture: Information flow between Student, Tutor Agent, Mem-",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "Solver, etc.).",
+            "page": 4
+        },
+        {
+            "level": "H3",
+            "text": "proactively offer targeted hints, scaffold the problem differently, or provide cor-",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "rective feedback when the error occurs. On the same principle, if LTM notes",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "that a student prefers visual explanations, aids such as function plotting will be",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "3.2",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "Course Creation for Exam Revision",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "For any structured learning, such as exam preparation, the Course component",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "gests optimal learning paths based on textbook knowledge and dependency anal-",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "ysis, and enables students to monitor their learning progress effectively. A stu-",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "action loop revolves around the Tutor Agent (GPT-4o), chosen for its conver-",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "appropriate memory modules for personalization.",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "4.1",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "The dual-memory framework that supports adaptive learning distinguishes be-",
+            "page": 4
+        },
+        {
+            "level": "H2",
+            "text": "AI-Powered Math Tutoring",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "Fig. 4.  Guided Tutoring Benchmark (Mathdial): Tutor Prompt yields higher Suc-",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "cess@K and lower Telling@K than Base Prompt, validating its guidance effectiveness.",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "tent, student-specific data (e.g., prior knowledge, misconceptions, learning pref-",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "interactions). These memory modules inform the Tutor Agent and content gen-",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "eration components. To ensure access to structured educational content, the",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "system implements Retrieval-Augmented Generation via the GraphRAG frame-",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "tured courses. A specific Task Creation module harnesses the o3-mini(high)",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "to generate personalized practice exercises based on topic, difficulty, and option-",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "ally using GraphRAG data. To create courses, a pipeline of agents (Research ->",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "data to construct a structured DAG guiding the learning process and stored in a",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "database [3]. Additionally, the system includes auxiliary tools, such as the Sym-",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "bolic Solver based on SymPy, a Function Plotter based on Matplotlib, and a",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "Course Graph Drawer.",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "Evaluation of major design aspects using the MathDial dataset [15] served both",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "to validate our pedagogical approach (guided tutoring) and to inform the selec-",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "tion of models relative to specific system components.",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "We assessed the Tutor Agent’s ability to lead learning without prematurely",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "cessful solution (’Success@N’). We compared GPT-4o and GPT-4o-mini using",
+            "page": 5
+        },
+        {
+            "level": "H2",
+            "text": "lating a tutor-student interaction without external tools.",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "Results (shown in Figure 4) displayed that the ’Tutor Prompt’ significantly",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "outperformed the ’Base Prompt’ for each model, achieving superior Success@N",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "and far lower Telling@N rates over interaction lengths (K). This validates our",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "prompting strategy’s effectiveness in promoting guided tutoring compared to",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "direct question answering in simulated dialogues.",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "To choose the model fitting for mathematical intensive Task Creation and",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "Course Planning, we tested the problem-solving accuracy of various LLMs(with",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "access to the SymPy tool) on the MathDial problem set. Model o3-mini(high)",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "and Claude 3.5 Sonnet obtained the highest accuracy, of 90.00%, followed by",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "Gemini 2.0 Flash (88.67%) with GPT-4o (78.67%) and GPT-4o-mini (77.33%)",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "obtaining the lowest scores. Consequently, o3-mini(high) was selected for the",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "Our assessment confirms key design choices, particularly the effectiveness of",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "guided tutoring prompts. However, a significant limitation noted by reviewers",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "is the lack of evaluation with real students in learning environments. Current",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "personalization operates on a basic set of attributes, while the pedagogical ef-",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "fectiveness of courses generated through GraphRAG for students is yet to be",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "evaluated empirically. System performance remains fundamentally dependent",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "on underlying LLM capabilities and possible biases.",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "Future work will focus on real-world user studies in order to assess learning",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "gains, the user experience, and the practical utility of generated courses. We",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "aim to improve personalization through advanced student modeling (e.g., adding",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "Technical improvements will also explore the potential of different LLMs and",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "We presented a multi-agent AI math tutor integrating adaptive tutoring, person-",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "alization, GraphRAG, and course planning to reach deep understanding through",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "quired, it demonstrates the potential for combining AI techniques and pedagog-",
+            "page": 6
+        },
+        {
+            "level": "H2",
+            "text": "ical methods for effective personalized STEM learning. Successfully addressing",
+            "page": 6
+        },
+        {
+            "level": "H3",
+            "text": "back.",
+            "page": 6
+        },
+        {
+            "level": "H1",
+            "text": "References",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "AI-Powered Math Tutoring",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "ering private tutoring by chaining large language models. In: Proc. 33rd",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "system for stock market analysis and prediction. In: Proc. 38th Pacific Asia Conf.",
+            "page": 7
+        },
+        {
+            "level": "H3",
+            "text": "proceedings forthcoming",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "software engineering. In: Proc. 39th IEEE/ACM Int. Conf. Autom. Softw. Eng.",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "proach to query-focused summarization (2025), https://arxiv.org/abs/2404.16130",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "Tutor: A simulation of a human tutor. Cogn. Syst. Res.  1 (1), 35–51 (1999).",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "rstar-math: Small llms can master math reasoning with self-evolved deep thinking",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "https://arxiv.org/abs/2502.11371",
+            "page": 7
+        },
+        {
+            "level": "H3",
+            "text": "8. Heffernan, N., Heffernan, C.: The ASSISTments ecosystem: Building a plat-",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "on human learning and teaching. Int. J. Artif. Intell. Educ.  24  (Dec 2014).",
+            "page": 7
+        },
+        {
+            "level": "H3",
+            "text": "9. van Hoeve, M., Doorman, M., Veldhuis, M.: Fostering a growth mindset in sec-",
+            "page": 7
+        },
+        {
+            "level": "H3",
+            "text": "Conf. Lang. Inf. Comput. (PACLIC 38). Tokyo, Japan (2024)",
+            "page": 7
+        },
+        {
+            "level": "H3",
+            "text": "P.:",
+            "page": 7
+        },
+        {
+            "level": "H3",
+            "text": "language",
+            "page": 7
+        },
+        {
+            "level": "H3",
+            "text": "technical",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "book content as context for retrieval-augmented generation with large lan-",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "guage models. In: Artificial Intelligence in Education. pp. 118–132 (Jul 2024).",
+            "page": 7
+        },
+        {
+            "level": "H2",
+            "text": "H., Chen, W., Zhou, J.: Kag: Boosting llms in professional domains via knowledge",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "augmented generation (2024), https://arxiv.org/abs/2409.13731",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "14. Liu,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Z.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Yin,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "S.X.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "C.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "N.F.:",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "language",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "via",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "tutoring",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "with",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Conference",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "https://api.semanticscholar.org/CorpusID:268889625",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "15. Macina, J., Daheim, N., Chowdhury, S., Sinha, T., Kapur, M., Gurevych, I.,",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "Sachan, M.: MathDial: A dialogue tutoring dataset with rich pedagogical prop-",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "(eds.) Findings of the Assoc. Comput. Linguist.: EMNLP 2023. pp. 5602–5621.",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "ACL, Singapore (Dec 2023). https://doi.org/10.18653/v1/2023.findings-emnlp.372",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "16. Macina, J., Daheim, N., Wang, L., Sinha, T., Kapur, M., Gurevych, I., Sachan,",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "M.: Opportunities and challenges in neural dialog tutoring. In: Vlachos, A.,",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "Augenstein, I. (eds.) Proc. 17th Conf. Eur. Chapter Assoc. Comput. Lin-",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "guist. (EACL 2023). pp. 2357–2372. ACL, Dubrovnik, Croatia (May 2023).",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "17. Mishra, T., Sutanto, E., Rossanti, R., Pant, N., Ashraf, A., Raut, A., Uwabareze,",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "G., Oluwatomiwa, A., Zeeshan, B.: Use of large language models as artificial intel-",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "18. Park, M., Kim, S., Lee, S., Kwon, S., Kim, K.: Empowering personalized learning",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "through a conversation-based tutoring system with student modeling. In: Ext.",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "work for building intelligent tutoring systems based on learning science princi-",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "put. Linguist.: EMNLP 2023. pp. 1941–1961. ACL, Singapore (Dec 2023).",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "20. Taneja,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "K.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Maiti,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "P.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "S.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "P.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "S.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "by",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "chatgpt",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "https://arxiv.org/abs/2405.11070",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "21. Trinh,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Wu,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Y.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Le,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "H.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Luong,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "T.:",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Solving",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "without",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "625 (7995),",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "476–482",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "2024).",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "23. Wang, S., Xu, T., Li, H., Zhang, C., Liang, J., Tang, J., Yu, P.S., Wen,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Q.:",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "language",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "for",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "education:",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "https://arxiv.org/abs/2403.18105",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "intelligence application in personalized learning environments: thematic analysis",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "25. Yao,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "S.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "J.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Yu,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "D.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Du,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "N.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "I.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Narasimhan,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "K.,",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "Y.:",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "React:",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "acting",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "in",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "language",
+            "page": 8
+        },
+        {
+            "level": "H3",
+            "text": "(2023),",
+            "page": 8
+        },
+        {
+            "level": "H2",
+            "text": "https://arxiv.org/abs/2210.03629",
+            "page": 8
+        }
+    ]
+}
