@@ -18,4 +18,4 @@ This project processes PDF documents to extract and classify section headings (l
 how to run
 
 pip install -r requirements.txt
-python predict.py
+python main.py
